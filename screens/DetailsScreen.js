@@ -6,10 +6,11 @@ const DetailsScreen = ({ navigation, route }) => {
     
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9' }}>
 
-      <Text style={styles.products}>{route.params.itemTitle}</Text>
-      <Text style={styles.products}>{route.params.itemDescription}</Text>
+      <Text style={styles.naamVoertuig}>{route.params.itemTitle}</Text>
 
-      <Text style={styles.beschrijving}> Beschrijving</Text>
+      <Text style={styles.beschrijving}> 📝 Beschrijving</Text>
+
+      <Text style={styles.tekst}>{route.params.itemDescription}</Text>
 
       <Pressable
       style={styles.button}
@@ -19,7 +20,7 @@ const DetailsScreen = ({ navigation, route }) => {
           itemDescription: route.params.itemDescription,
         })
       }>
-        <Text> Toevoegen aan karretje</Text>
+        <Text style={styles.button}> Toevoegen aan karretje</Text>
       </Pressable>
       
     </View>
@@ -33,26 +34,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     
   },
-  titel: {
-    color:"white",
-    fontWeight:"bold",
-    textAlign:"center",
-    marginBottom:"5%",
-    fontSize:30,
-    textDecorationLine: 'underline',
-  },
   beschrijving: {
     color:"white",
     fontWeight:"bold",
     textAlign:"center",
-    marginBottom:"5%",
+    marginBottom:"2%",
     fontSize:20,
   },
   button:{
         justifyContent: 'center',
         marginRight: 'auto',
-        marginLeft: 'auto',      
-      }
+        marginLeft: 'auto',
+        color: 'white',
+        backgroundColor: "green",
+        padding:"1%",
+        fontWeight:"bold",
+  },
+  naamVoertuig: { 
+      color:"white",
+      fontWeight:"bold",
+      fontSize:35,
+      paddingBottom: 400,
+  },
+  tekst: { 
+    color:"black",
+    fontWeight:"400",
+    width: 200,
+    backgroundColor: '#FAF9F6',
+    borderRadius: 5,
+    marginBottom: 15,
+  },
+
 });
 
 export default DetailsScreen;

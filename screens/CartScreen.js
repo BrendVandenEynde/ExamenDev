@@ -5,15 +5,17 @@ const CartScreen = ({ navigation, route }) => {
     return (
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9' }}>
-        <Text> Garage Winkelmand </Text>
+        <Text style={styles.titel}> 🛒 Winkelkarretje </Text>
 
-        <Text style={styles.products}>{route.params.itemTitle}</Text>
-        <Text style={styles.products}>{route.params.itemDescription}</Text>
+        <Text style={styles.naamVoertuig}>{route.params.itemTitle}</Text>
+       
   
-        <Text style={styles.beschrijving}> Beschrijving</Text>
+        <Text style={styles.beschrijving}> 📝 Beschrijving</Text>
+
+        <Text style={styles.tekst}>{route.params.itemDescription}</Text>
   
         <Button
-          title="Toevoegen aan winkelmand"
+          title="Betalen"
           color="#ef233c"
         />
         
@@ -31,21 +33,35 @@ const styles = StyleSheet.create({
       color:"white",
       fontWeight:"bold",
       textAlign:"center",
-      marginBottom:"5%",
-      fontSize:30,
+      fontSize:40,
       textDecorationLine: 'underline',
     },
     beschrijving: {
       color:"white",
       fontWeight:"bold",
       textAlign:"center",
-      marginBottom:"5%",
+      marginBottom:"2%",
       fontSize:20,
     },
     button:{
           justifyContent: 'center',
           marginRight: 'auto',
           marginLeft: 'auto',      
+    },
+    tekst: { 
+      color:"black",
+      fontWeight:"400",
+      width: 200,
+      backgroundColor: '#FAF9F6',
+      borderRadius: 5,
+      marginBottom: 15,
+    },
+    naamVoertuig: {
+      color:"white",
+      fontWeight:"bold",
+      marginTop:"3%",
+      marginBottom:"80%",
+      fontSize:20,
     }
 });
 

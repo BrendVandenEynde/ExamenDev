@@ -1,23 +1,26 @@
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View, FlatList, Pressable} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Pressable,Image} from 'react-native';
 
 const VoertuigTile = ({data}) => {
   const navigation = useNavigation();
     return (
 
         <View>
-          <View style={{ backgroundColor: 'white' }}>
+          <View>
             
           <FlatList
             styles={styles.flat}
             data={data}
+            ListFooterComponent={<View style={{height: 80}}/>}
             renderItem={({ item }) => { return (   
 
             <View style={styles.tile}> 
             <View style={styles. tileDetails}>
             <Text style={styles.tileTitle}>{item.title.rendered}</Text>
             <Text> ---------------------------------------------------------</Text>
-            <Text  style={styles.titleSubtitle}>{item.excerpt.rendered}</Text> 
+              
+            <Text> ---------------------------------------------------------</Text>
+            <Text style={styles.titleSubtitle}>{item.excerpt.rendered}</Text> 
 
             <Pressable
                 style={styles.button}
@@ -28,9 +31,9 @@ const VoertuigTile = ({data}) => {
                   })
                 }
               >
-                <Text>Lees meer</Text>
+                <Text style={styles.leesMeer}>Lees meer</Text>
               </Pressable>
-            
+             
             </View>
             </View>
           )
@@ -46,10 +49,10 @@ const VoertuigTile = ({data}) => {
 
 const styles = StyleSheet.create({
     tile: {
-        width: 250,
-        height: 200,
-        backgroundColor: '#E3DFD5',
-        marginVertical: '1.50%',
+        width: 270,
+        height: 280,
+        backgroundColor: '#FAF9F6',
+        marginVertical: '3%',
         borderStyle: 'solid',
         borderWidth: 1,
         borderColor: '#808080',
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
       tileTitle:{
         fontSize: 18,
         marginTop: 12,
-        marginBottom: -20,
+        marginBottom: 5,
         color: '#35373A',
       },
       titleSubtitle: {
@@ -73,13 +76,19 @@ const styles = StyleSheet.create({
       },
      flat: {
         backgroundColor: "yellow",
-        flex:2,
         borderColor: "black",
      },
       button:{
         justifyContent: 'center',
         marginRight: 'auto',
-        marginLeft: 'auto',      
+        marginLeft: 'auto',
+        padding:"3%",
+        backgroundColor: "#0F52BA",
+        borderRadius: 10,      
+      },
+      leesMeer: { 
+        color: "white",
+        fontWeight:"bold",
       }
 
 });

@@ -33,9 +33,9 @@ const HomeScreen = ({ navigation, route }) => {
 
   return (
  
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9', }}>
+    <View style={{ flexDirection: 'row', flexWrap:'wrap', alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9', flex: 1, }}>
 
-      <Text style={styles.titel}>De Clueless Garage</Text>
+      <Text style={styles.titel}> 🧰 De Clueless Garage 👨‍🔧</Text>
       <VoertuigTile data={voertuigen} />
      
     </View>
@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     marginBottom:"5%",
     fontSize:30,
     textDecorationLine: 'underline',
-    paddingTop: 80,
+    paddingTop: 12,
+    marginBottom: 8,
   },
   tussenTitels: {
     color:"white",
