@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button, FlatList, ScrollView } from 'react-nati
 import VoertuigTile from '../Components/VoertuigTegel';
 
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
 
   const [voertuigen, setVoertuigen] = useState([]);
 

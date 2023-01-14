@@ -1,21 +1,14 @@
+import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, Image, Button, FlatList, ScrollView, Pressable, SafeAreaView  } from 'react-native';
 
 
 const VoertuigTile = ({data}) => {
+  const navigation = useNavigation();
     return (
 
         <View>
-          <Text> Hiii</Text>
-          <View style={{ backgroundColor: 'white', height: 350, width: 350, }}>
-            <Pressable onPress={console.log(data)}> 
-              <Text>
-
-                Hiiiiiiiiiii
-
-              </Text>
+          <View style={{ backgroundColor: 'white' }}>
             
-            
-            </Pressable>
           <FlatList
           styles={styles.flat}
           data={data}
@@ -26,7 +19,18 @@ const VoertuigTile = ({data}) => {
           <Text style={styles.tileTitle}>{item.title.rendered}</Text>
           <Text> ---------------------------------------------------------</Text>
           <Text  style={styles.titleSubtitle}>{item.excerpt.rendered}</Text> 
-          <Button style={styles.button} title="Lees meer" onPress={() => navigation.navigate('Details')} color="#ef233c"/>
+
+          <Pressable
+              style={styles.button}
+              onPress={() =>
+                navigation.navigate("Details", {
+                  itemTitle: item.title.rendered,
+                  itemDescription: item.excerpt.rendered,
+                })
+              }
+            >
+              <Text>Lees meer</Text>
+            </Pressable>
            
           </View>
           </View>
@@ -78,10 +82,14 @@ const styles = StyleSheet.create({
       },
      flat: {
         backgroundColor: "yellow",
-        flex:1,
+        flex:2,
         borderColor: "black",
-     }
-       
+     },
+      button:{
+        justifyContent: 'center',
+        marginRight: 'auto',
+        marginLeft: 'auto',      
+      }
      
 
 });
