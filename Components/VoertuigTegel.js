@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View, Image, Button, FlatList, ScrollView, Pressable, SafeAreaView  } from 'react-native';
-
+import { StyleSheet, Text, View, FlatList, Pressable} from 'react-native';
 
 const VoertuigTile = ({data}) => {
   const navigation = useNavigation();
@@ -10,39 +9,38 @@ const VoertuigTile = ({data}) => {
           <View style={{ backgroundColor: 'white' }}>
             
           <FlatList
-          styles={styles.flat}
-          data={data}
-          renderItem={({ item }) => { return (   
+            styles={styles.flat}
+            data={data}
+            renderItem={({ item }) => { return (   
 
-          <View style={styles.tile}> 
-          <View style={styles. tileDetails}>
-          <Text style={styles.tileTitle}>{item.title.rendered}</Text>
-          <Text> ---------------------------------------------------------</Text>
-          <Text  style={styles.titleSubtitle}>{item.excerpt.rendered}</Text> 
+            <View style={styles.tile}> 
+            <View style={styles. tileDetails}>
+            <Text style={styles.tileTitle}>{item.title.rendered}</Text>
+            <Text> ---------------------------------------------------------</Text>
+            <Text  style={styles.titleSubtitle}>{item.excerpt.rendered}</Text> 
 
-          <Pressable
-              style={styles.button}
-              onPress={() =>
-                navigation.navigate("Details", {
-                  itemTitle: item.title.rendered,
-                  itemDescription: item.excerpt.rendered,
-                })
-              }
-            >
-              <Text>Lees meer</Text>
-            </Pressable>
-           
-          </View>
-          </View>
-           )
+            <Pressable
+                style={styles.button}
+                onPress={() =>
+                  navigation.navigate("Details", {
+                    itemTitle: item.title.rendered,
+                    itemDescription: item.excerpt.rendered,
+                  })
+                }
+              >
+                <Text>Lees meer</Text>
+              </Pressable>
+            
+            </View>
+            </View>
+          )
                         
-        }}
-        />
+           }}
+          />
 
         </View>
 
         </View>
-
 );
 }
 
@@ -56,27 +54,20 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#808080',
         borderRadius: 30,
-
       },
-    
       tileImg:{
         width: '100%',
         height: 110,
-    
       },
-    
       tileDetails: {
         padding: 10,
       },
-    
       tileTitle:{
         fontSize: 18,
         marginTop: 12,
         marginBottom: -20,
         color: '#35373A',
-    
       },
-    
       titleSubtitle: {
         fontSize: 14,
       },
@@ -90,7 +81,6 @@ const styles = StyleSheet.create({
         marginRight: 'auto',
         marginLeft: 'auto',      
       }
-     
 
 });
 

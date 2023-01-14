@@ -1,17 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
-
-
-
+import { StyleSheet, Text, View, Pressable} from 'react-native';
 
 const DetailsScreen = ({ navigation, route }) => {
   return (
     
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9' }}>
+
       <Text style={styles.products}>{route.params.itemTitle}</Text>
       <Text style={styles.products}>{route.params.itemDescription}</Text>
 
-      
       <Text style={styles.beschrijving}> Beschrijving</Text>
 
       <Pressable
@@ -28,14 +25,6 @@ const DetailsScreen = ({ navigation, route }) => {
     </View>
   );
 }
-
-
-
-
-
-
-
-
 
 const styles = StyleSheet.create({
   screen: {
@@ -59,10 +48,11 @@ const styles = StyleSheet.create({
     marginBottom:"5%",
     fontSize:20,
   },
-      button:{
+  button:{
         justifyContent: 'center',
         marginRight: 'auto',
         marginLeft: 'auto',      
       }
 });
+
 export default DetailsScreen;

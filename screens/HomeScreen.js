@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Button, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 
 import VoertuigTile from '../Components/VoertuigTegel';
 
@@ -14,44 +14,30 @@ const HomeScreen = ({ navigation, route }) => {
         "https://brendvandeneynde.be/wp-json/wp/v2/posts?categories=12",
         {}
       );
+
       const json = await response.json();
-      setVoertuigen(json);
-      console.log(voertuigen);
-    } catch (error) {
-      console.error(error);
-    }
+        setVoertuigen(json);
+        /* console.log(voertuigen); */
+
+    } 
+    
+      catch (error) {
+        console.error(error);
+      }
+
   };
 
   useEffect(() => {
     getVoertuigen();
   }, []);
 
-
   return (
  
- 
- 
-
- 
- <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9', }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9', }}>
 
       <Text style={styles.titel}>De Clueless Garage</Text>
-     
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-        color="#ef233c"
-      />
-      <Button
-        title="go to About"
-        onPress={() => navigation.navigate('About')}//-> gaat naar About
-        color="#ef233c"
-      />
-
       <VoertuigTile data={voertuigen} />
      
-
-
     </View>
     
   );
@@ -71,7 +57,7 @@ const styles = StyleSheet.create({
     marginBottom:"5%",
     fontSize:30,
     textDecorationLine: 'underline',
-    paddingTop: 20,
+    paddingTop: 80,
   },
   tussenTitels: {
     color:"white",
@@ -81,6 +67,6 @@ const styles = StyleSheet.create({
     marginBottom: "1%"
   }
 
-
 });
+
 export default HomeScreen;
