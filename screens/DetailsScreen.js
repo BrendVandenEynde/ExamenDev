@@ -4,10 +4,11 @@ import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
 const DetailsScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9' }}>
-      <Text style={styles.titel}>Naam voertuig</Text>
+      
+      <Text style={styles.titel}> Naam voertuig</Text>
         
 
-      <Text style={styles.beschrijving}>Beschrijving</Text>
+      <Text style={styles.beschrijving}> Beschrijving</Text>
 
       <Button
         title="Toevoegen aan winkelmand"

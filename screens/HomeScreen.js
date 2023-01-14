@@ -1,14 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Button, FlatList, ScrollView } from 'react-native';
 
 import VoertuigTile from '../Components/VoertuigTegel';
 
+
 const HomeScreen = ({ navigation }) => {
+
+  const [voertuigen, setVoertuigen] = useState([]);
+
+  const getVoertuigen = async () => {
+    try {
+      const response = await fetch(
+        "https://brendvandeneynde.be/wp-json/wp/v2/posts?categories=12",
+        {}
+      );
+      const json = await response.json();
+      setVoertuigen(json);
+      console.log(voertuigen);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getVoertuigen();
+  }, []);
+
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9', }}>
+ 
+ 
+ 
+
+ 
+ <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9', }}>
 
       <Text style={styles.titel}>De Clueless Garage</Text>
-      <ScrollView>
+     
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
@@ -20,27 +48,12 @@ const HomeScreen = ({ navigation }) => {
         color="#ef233c"
       />
 
-          <View style={styles.tilesContainer}>
+      <VoertuigTile data={voertuigen} />
+     
 
-          <Text  style={styles.tussenTitels}>Scooters en Motoren</Text>
-          <VoertuigTile title="Development 3" />
-          <VoertuigTile  title="Creatie 2" />
-          <VoertuigTile  title="Ondernemerschap 2" />
-
-          <Text style={styles.tussenTitels}>Wagens</Text>
-          <VoertuigTile  title="Creatie 3" />
-          <VoertuigTile  title="Creatie 3" />
-          <VoertuigTile  title="Creatie 3" />
-
-          <Text style={styles.tussenTitels}>Elektrische Wagens</Text>
-          <VoertuigTile  title="Creatie 3" />
-          <VoertuigTile  title="Creatie 3" />
-          <VoertuigTile  title="Creatie 3" />
-
-          </View>
-      </ScrollView>
 
     </View>
+    
   );
 }
 
@@ -58,6 +71,7 @@ const styles = StyleSheet.create({
     marginBottom:"5%",
     fontSize:30,
     textDecorationLine: 'underline',
+    paddingTop: 20,
   },
   tussenTitels: {
     color:"white",

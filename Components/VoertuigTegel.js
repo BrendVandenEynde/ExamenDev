@@ -1,19 +1,42 @@
+import { StyleSheet, Text, View, Image, Button, FlatList, ScrollView, Pressable, SafeAreaView  } from 'react-native';
 
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
-
-const VoertuigTile = (props) => {
+const VoertuigTile = ({data}) => {
     return (
 
         <View>
-            <View style={styles.tile}> 
-                    <View style={styles. tileDetails}>
-                    <Text style={styles.tileTitle}>{props.title}</Text>
-                    <Text> ---------------------------------------------------------</Text>
-                    <Text  style={styles.titleSubtitle}>{props.titleSubtitle}</Text> 
-                    <Button style={styles.button} title="Lees meer" onPress={() => navigation.navigate('Details')} color="#ef233c"/>
+          <Text> Hiii</Text>
+          <View style={{ backgroundColor: 'white', height: 350, width: 350, }}>
+            <Pressable onPress={console.log(data)}> 
+              <Text>
+
+                Hiiiiiiiiiii
+
+              </Text>
+            
+            
+            </Pressable>
+          <FlatList
+          styles={styles.flat}
+          data={data}
+          renderItem={({ item }) => { return (   
+
+          <View style={styles.tile}> 
+          <View style={styles. tileDetails}>
+          <Text style={styles.tileTitle}>{item.title.rendered}</Text>
+          <Text> ---------------------------------------------------------</Text>
+          <Text  style={styles.titleSubtitle}>{item.excerpt.rendered}</Text> 
+          <Button style={styles.button} title="Lees meer" onPress={() => navigation.navigate('Details')} color="#ef233c"/>
+           
           </View>
-      </View>
+          </View>
+           )
+                        
+        }}
+        />
+
+        </View>
+
         </View>
 
 );
@@ -53,11 +76,11 @@ const styles = StyleSheet.create({
       titleSubtitle: {
         fontSize: 14,
       },
-
-      button: {
-          
-
-      }
+     flat: {
+        backgroundColor: "yellow",
+        flex:1,
+        borderColor: "black",
+     }
        
      
 
