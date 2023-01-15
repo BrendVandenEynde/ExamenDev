@@ -12,7 +12,7 @@ const CartScreen = ({ navigation, route }) => {
   
         <Text style={styles.beschrijving}> 📝 Beschrijving</Text>
 
-        <Text style={styles.tekst}>{route.params.itemDescription}</Text>
+        <Text style={styles.tekst}>{route.params.itemDescription.substring(3,236)}</Text>
   
         <Button
           title="Betalen"

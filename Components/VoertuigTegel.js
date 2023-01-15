@@ -17,10 +17,14 @@ const VoertuigTile = ({data}) => {
             <View style={styles.tile}> 
             <View style={styles. tileDetails}>
             <Text style={styles.tileTitle}>{item.title.rendered}</Text>
+
             <Text> ---------------------------------------------------------</Text>
-              
+
+          
+
             <Text> ---------------------------------------------------------</Text>
-            <Text style={styles.titleSubtitle}>{item.excerpt.rendered}</Text> 
+
+            <Text style={styles.titleSubtitle}>{item.excerpt.rendered.substring(3,236)}</Text> 
 
             <Pressable
                 style={styles.button}
@@ -50,7 +54,7 @@ const VoertuigTile = ({data}) => {
 const styles = StyleSheet.create({
     tile: {
         width: 270,
-        height: 280,
+        height: 400,
         backgroundColor: '#FAF9F6',
         marginVertical: '3%',
         borderStyle: 'solid',
@@ -89,7 +93,12 @@ const styles = StyleSheet.create({
       leesMeer: { 
         color: "white",
         fontWeight:"bold",
-      }
+      },
+      foto: {
+        width: 51,
+        height: 51,
+        resizeMode: 'contain',
+      },
 
 });
 

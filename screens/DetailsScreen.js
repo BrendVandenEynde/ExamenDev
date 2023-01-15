@@ -1,16 +1,66 @@
-import React from 'react';
-import { StyleSheet, Text, View, Pressable} from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Pressable, Button, Image} from 'react-native';
+
 
 const DetailsScreen = ({ navigation, route }) => {
+
+  const [counter, setCounter] = useState(0);
+  const [counter2, setCounter2] = useState(3);
+
+  const increase = () => {
+    if (counter2 > 0) {
+      setCounter((currentCounter) => currentCounter + 1);
+      setCounter2((currentCounter2) => currentCounter2 - 1);
+    }
+  };
+
+  const decrease = () => {
+    if (counter > 0) {
+      setCounter((currentCounter) => currentCounter - 1);
+      setCounter2((currentCounter2) => currentCounter2 + 1);
+    }
+    if (counter == 0) {
+      counter + 0;
+    }
+    if (counter2 == 5) {
+      counter2 + 0;
+    }
+  };
+
   return (
     
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9' }}>
 
       <Text style={styles.naamVoertuig}>{route.params.itemTitle}</Text>
 
+
       <Text style={styles.beschrijving}> 📝 Beschrijving</Text>
 
-      <Text style={styles.tekst}>{route.params.itemDescription}</Text>
+      <Text style={styles.tekst}>{route.params.itemDescription.substring(3,236)}</Text>
+
+      <View>
+
+      <View style={styles.shoppingcart}>
+
+            <Image style={styles.icon} source={{uri: "https://cdn-icons-png.flaticon.com/512/1571/1571991.png",}}/>
+
+            <Text style={styles.number}>{counter}</Text>
+
+      </View>
+
+      <Pressable  onPress={() => {increase();}}> 
+
+        <Text style={styles.buttonPlus}>Toevoegen aan karretje</Text>
+
+      </Pressable>
+
+      <Pressable onPress={() => {decrease();}}>
+
+        <Text style={styles.buttonMin}>Verwijderen uit karretje</Text>
+
+      </Pressable>
+
+      </View>
 
       <Pressable
       style={styles.button}
@@ -20,12 +70,16 @@ const DetailsScreen = ({ navigation, route }) => {
           itemDescription: route.params.itemDescription,
         })
       }>
-        <Text style={styles.button}> Toevoegen aan karretje</Text>
+        <Text style={styles.button}> Winkelkarretje</Text>
       </Pressable>
       
+      
+
+
     </View>
-  );
-}
+
+  )};
+      
 
 const styles = StyleSheet.create({
   screen: {
@@ -48,13 +102,15 @@ const styles = StyleSheet.create({
         color: 'white',
         backgroundColor: "green",
         padding:"1%",
+        margin:"1%",
         fontWeight:"bold",
+        borderRadius: 20,
   },
   naamVoertuig: { 
       color:"white",
       fontWeight:"bold",
       fontSize:35,
-      paddingBottom: 400,
+      paddingBottom: 200,
   },
   tekst: { 
     color:"black",
@@ -64,7 +120,44 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 15,
   },
+  buttonPlus:{
+    justifyContent: 'center',
+    textAlign:"center",
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    color: 'white',
+    backgroundColor: "#FF5F1F",
+    padding:"1%",
+    margin:"1%",
+    fontWeight:"bold",
+    width: 160,
+    borderRadius: 20,
 
+},
+buttonMin:{
+  justifyContent: 'center',
+  textAlign:"center",
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  color: 'white',
+  backgroundColor: "#FF5F1F",
+  padding:"1%",
+  margin:"1%",
+  fontWeight:"bold",
+  width: 160,
+  borderRadius: 20,
+},
+icon: {
+  height: 40,
+  width: 40,
+  marginTop: 8,
+  justifyContent: 'center',
+  textAlign:"center",
+},
+number: {
+  color: 'white',
+  fontWeight:"bold",
+}
 });
 
 export default DetailsScreen;

@@ -2,7 +2,6 @@ import { StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-//screens folder voor alle schermen
 import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import CartScreen from './screens/CartScreen';
@@ -18,6 +17,7 @@ export default function App() {
         <Stack.Screen name="Karretje" component={CartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    
   );
 }
 
