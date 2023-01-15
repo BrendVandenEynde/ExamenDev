@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View,} from 'react-native';
 
 import VoertuigTile from '../Components/VoertuigTegel';
-
 
 const HomeScreen = ({ navigation, route }) => {
 
@@ -36,6 +35,7 @@ const HomeScreen = ({ navigation, route }) => {
     <View style={{ flexDirection: 'row', flexWrap:'wrap', alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9', flex: 1, }}>
 
       <Text style={styles.titel}> 🧰 De Clueless Garage 👨‍🔧</Text>
+
       <VoertuigTile data={voertuigen} />
      
     </View>
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
   titel: {
     color:"white",
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
     fontSize:20,
     marginTop:"3%",
     marginBottom: "1%"
-  }
+  },
 
 });
 

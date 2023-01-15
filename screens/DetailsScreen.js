@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Pressable, Button, Image} from 'react-native';
+import { StyleSheet, Text, View, Pressable, Image} from 'react-native';
 
 
 const DetailsScreen = ({ navigation, route }) => {
@@ -33,6 +33,8 @@ const DetailsScreen = ({ navigation, route }) => {
 
       <Text style={styles.naamVoertuig}>{route.params.itemTitle}</Text>
 
+      <Image source={{uri: 'https://images.unsplash.com/photo-1551522435-a13afa10f103?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'}} style={{width: 350, height: 200, marginBottom: 20,}}/>
+
 
       <Text style={styles.beschrijving}> 📝 Beschrijving</Text>
 
@@ -48,17 +50,17 @@ const DetailsScreen = ({ navigation, route }) => {
 
       </View>
 
-      <Pressable  onPress={() => {increase();}}> 
+        <Pressable  onPress={() => {increase();}}> 
 
-        <Text style={styles.buttonPlus}>Toevoegen aan karretje</Text>
+          <Text style={styles.buttonPlus}>Toevoegen aan karretje</Text>
 
-      </Pressable>
+        </Pressable>
 
-      <Pressable onPress={() => {decrease();}}>
+        <Pressable onPress={() => {decrease();}}>
 
-        <Text style={styles.buttonMin}>Verwijderen uit karretje</Text>
+          <Text style={styles.buttonMin}>Verwijderen uit karretje</Text>
 
-      </Pressable>
+        </Pressable>
 
       </View>
 
@@ -73,9 +75,6 @@ const DetailsScreen = ({ navigation, route }) => {
         <Text style={styles.button}> Winkelkarretje</Text>
       </Pressable>
       
-      
-
-
     </View>
 
   )};
@@ -85,8 +84,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    
+    justifyContent: 'center',   
   },
   beschrijving: {
     color:"white",
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
         marginRight: 'auto',
         marginLeft: 'auto',
         color: 'white',
-        backgroundColor: "green",
+        backgroundColor: "red",
         padding:"1%",
         margin:"1%",
         fontWeight:"bold",
@@ -110,7 +108,7 @@ const styles = StyleSheet.create({
       color:"white",
       fontWeight:"bold",
       fontSize:35,
-      paddingBottom: 200,
+      paddingBottom: 25,
   },
   tekst: { 
     color:"black",
@@ -157,7 +155,7 @@ icon: {
 number: {
   color: 'white',
   fontWeight:"bold",
-}
+},
 });
 
 export default DetailsScreen;

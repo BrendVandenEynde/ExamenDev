@@ -20,41 +20,35 @@ const VoertuigTile = ({data}) => {
 
             <Text> ---------------------------------------------------------</Text>
 
-          
+            <Image source={{uri: 'https://images.unsplash.com/photo-1551522435-a13afa10f103?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'}} style={{width: 250, height: 200}}/>
 
             <Text> ---------------------------------------------------------</Text>
 
-            <Text style={styles.titleSubtitle}>{item.excerpt.rendered.substring(3,236)}</Text> 
+            {/*<Text style={styles.titleSubtitle}>{item.excerpt.rendered.substring(3,236)}</Text> */}
 
-            <Pressable
-                style={styles.button}
-                onPress={() =>
-                  navigation.navigate("Details", {
-                    itemTitle: item.title.rendered,
-                    itemDescription: item.excerpt.rendered,
-                  })
-                }
-              >
+            <Pressable style={styles.button} onPress={() => navigation.navigate("Details", {itemTitle: item.title.rendered, itemDescription: item.excerpt.rendered,})}>
+
                 <Text style={styles.leesMeer}>Lees meer</Text>
-              </Pressable>
+
+            </Pressable>
              
-            </View>
-            </View>
+          </View>
+          </View>
+
           )
-                        
-           }}
-          />
+                 
+           }}/>
 
         </View>
 
-        </View>
+      </View>
 );
 }
 
 const styles = StyleSheet.create({
     tile: {
         width: 270,
-        height: 400,
+        height: 350,
         backgroundColor: '#FAF9F6',
         marginVertical: '3%',
         borderStyle: 'solid',
@@ -77,6 +71,7 @@ const styles = StyleSheet.create({
       },
       titleSubtitle: {
         fontSize: 14,
+        marginBottom: 10,
       },
      flat: {
         backgroundColor: "yellow",

@@ -1,23 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, Image} from 'react-native';
 
 const CartScreen = ({ navigation, route }) => {
     return (
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#246EE9' }}>
+
         <Text style={styles.titel}> 🛒 Winkelkarretje </Text>
 
         <Text style={styles.naamVoertuig}>{route.params.itemTitle}</Text>
-       
-  
+
+        <Image source={{uri: 'https://images.unsplash.com/photo-1551522435-a13afa10f103?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'}} style={{width: 350, height: 200, marginBottom: 20,}}/>
+    
         <Text style={styles.beschrijving}> 📝 Beschrijving</Text>
 
         <Text style={styles.tekst}>{route.params.itemDescription.substring(3,236)}</Text>
   
-        <Button
-          title="Betalen"
-          color="#ef233c"
-        />
+        <Button title="Betalen" color="#ef233c"/>
         
       </View>
     );
@@ -60,9 +59,9 @@ const styles = StyleSheet.create({
       color:"white",
       fontWeight:"bold",
       marginTop:"3%",
-      marginBottom:"80%",
+      marginBottom: 20,
       fontSize:20,
-    }
+    },
 });
 
 export default CartScreen;
